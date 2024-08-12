@@ -1,0 +1,31 @@
+{
+  "name": "Jigsaw",
+  "short_name": "Jigsaw",
+  "description": "A free Jigsaw Puzzle game.",
+	"icons": [
+    {
+      "src": "images/jigsaw256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "images/jigsaw512.png",
+      "sizes": "512x5126"
+    },
+    {
+      "src": "images/jigsaw192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/jigsaw180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "images/jigsaw64.png",
+      "sizes": "64x64"
+    }
+  ],
+  "start_url": "/Jigsaw/index.html",
+  "theme_color": "#eeffee",
+  "background_color": "#eeffee",
+  "display": "standalone"
+}

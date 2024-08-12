@@ -1,0 +1,122 @@
+
+			#body1 {
+			}
+			body {
+				background: #225;
+				color: #000000;
+				margin:	0px;
+				padding: 0px;
+			}
+			a {
+				color: #f00;
+			}
+			h1 {
+			  color: white;
+			  margin:0rem;
+			  text-align: center;
+			}
+			h2 {
+				font-size: 1rem;
+			}
+			#page1 {
+				margin: 1rem;
+			}
+			section {
+			  margin-bottom: 2rem;
+			  display: flex;
+			  flex-flow: row wrap;
+			}
+			section > div {
+				flex: 1;
+				background:#f0f0f0;
+				padding: 1px;
+				border-radius: 20px;
+				border: 3px outset;
+				margin-bottom: 2px;
+				text-align: center;
+			}
+			.qSelect {
+				border-color:gold;
+				border-style:inset;
+				background: white
+				;
+			}
+			input[type="radio"] {
+			  display: none;
+			  &:not(:disabled) ~ label {
+				cursor: pointer;
+			  }
+			  &:disabled ~ label {
+			  }
+			}
+			.buttonDiv,.donate {
+				text-align:center;
+				margin-left:1rem;
+				margin-right:1rem;
+			}
+			.buttonDiv > button, .donate a button{
+			  background: white;
+			  border: 2px solid hsla(150, 75%, 50%, 1);
+			  border-radius: 20px;
+			  padding-left:  0.2rem;
+			  padding-right: 0.2rem;
+			  text-align: center;
+			  box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+			  width: 100%;
+			}
+			.buttonDiv > button:hover {
+			  background: hsla(150, 75%, 50%, 1);
+			  color: hsla(215, 0%, 100%, 1);
+			  box-shadow: 0px 0px 20px hsla(150, 100%, 50%, 0.75);
+			}
+			label {
+			}
+			label > h2 {
+				margin:0.1rem;
+				margin-bottom:0px;
+			}
+			label > p {
+				margin:0;
+				font-size:0.7rem;
+			}
+			.question {
+				color:white;
+			}
+			#info {
+				color: white;
+			}
+			section.imageSelect div {
+				background-color: #225;
+				padding:0px;
+				border:none;
+			}
+			section.imageSelect div label img {
+				border-radius: 7px;
+				border: 4px outset;
+				object-fit: cover;
+				height: 95px;
+				width: 110px;
+				transition: all .5s ease-in-out;
+			}
+			section.imageSelect div label img:hover {
+				transform: scale(1.5);
+				border:4px solid gray;
+			}
+			section.imageSelect div.iSelect label img {
+				border-color: gold;
+			}
+			@media only screen and (max-width: 500px) {	
+				.imageSelect img {
+					border-radius: 4px !important;
+					height: 60px !important;
+					width: 60px !important;
+				}
+				section {
+					margin-bottom: 0px;
+				}
+			}
+			@media only screen and (max-width: 300px) {
+			  section {
+				flex-direction: column;
+			  }
+			}

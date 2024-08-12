@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jigsaw Puzzle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" href="images/jigsaw64.png" />
+	<link rel="manifest" href="manifest.json" />
+	<script src="jquery.js"></script>
+	<script src="three.js"></script>
+	<script src="main.js"></script>
+	<link href="canvasStyle.css" rel="stylesheet" type="text/css" />
+	<link href="main.css" rel="stylesheet" type="text/css" />
+	<style> <!-- styles -->
+		
+	</style>
+</head>
+
+<body id="body1" onload="init()">
+<div id="page1" class="page">
+	<h1 style="text-align:center;">Jigsaw Puzzle</h1>
+	<h2 class="question">Select Puzzle Size&hellip;</h2>
+    <section>
+        <div class="qSelect">
+            <input type="radio" id="control_01a" name="puzzleDifficulty" value=1 checked>
+            <label for="control_01a">
+                <h2>Easy</h2>
+                <p>&asymp; 15 pieces</p>
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_02a" name="puzzleDifficulty" value=2>
+            <label for="control_02a">
+                <h2>Medium</h2>
+                <p>&asymp; 30 pieces</p>
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_03a" name="puzzleDifficulty" value=3>
+            <label for="control_03a">
+                <h2>Hard</h2>
+                <p>&asymp; 60 pieces</p>
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_04a" name="puzzleDifficulty" value=3>
+            <label for="control_03a">
+                <h2>Very Hard</h2>
+                <p>&asymp; pieces</p>
+            </label>
+        </div>
+    </section>
+    <h2 class="question">Select Orientation&hellip;</h2>
+    <section>
+        <div class="qSelect">
+            <input type="radio" id="control_01" name="selectRotatable" value=0 checked>
+            <label for="control_01">
+                <h2>No rotation</h2>
+                <p>Pieces are aligned</p>
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_02" name="selectRotatable" value=1>
+            <label id="selectFile" for="control_02">
+                <h2>Rotatable</h2>
+                <p>Tap to change direction.</p>
+            </label>
+        </div>
+    </section>
+    <h2 class="question">Select Picture&hellip;</h2>
+    <section  class="imageSelect">
+        <div class="iSelect">
+            <input type="radio" id="control_01b" name="selectPicture" value=1 checked>
+            <label for="control_01b">
+				<img id="picture1" src="images/landscape1.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_02b" name="selectPicture" value=2>
+            <label for="control_02b">
+				<img id="picture2" src="images/landscape2.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_03b" name="selectPicture" value=3>
+            <label for="control_03b">
+				<img id="picture3" src="images/landscape3.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_04b" name="selectPicture" value=4>
+            <label for="control_04b">
+				<img id="picture4" src="images/landscape4.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_05b" name="selectPicture" value=5>
+            <label for="control_05b">
+				<img id="picture5" src="images/landscape5.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_06b" name="selectPicture" value=6>
+            <label for="control_06b">
+				<img id="picture6" src="images/landscape6.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_07b" name="selectPicture" value=7>
+            <label for="control_07b">
+				<img id="picture7" src="images/landscape7.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_08b" name="selectPicture" value=8>
+            <label for="control_08b">
+				<img id="picture8" src="images/landscape8.jpg">
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="control_09b" name="selectPicture" value=9>
+            <label for="control_09b">
+                <img id="picture9" src="images/landscape9.jpg">
+            </label>
+        </div>
+       <div class="fSelect">
+            <input type="radio" id="control_10b" name="selectPicture" value=10>
+			<input type="file"  id="imageInput" hidden  accept="image/png, image/jpeg"/>
+            <label for="control_10b">
+                <img id="picture10" src="images/chooser.png" >
+            </label>
+        </div>
+<!--        <div class="fSelect">
+            <input type="radio" id="control_10b" name="selectPicture" value=10>
+			<input type="file"  id="imageInput" hidden  accept="image/png, image/jpeg"/>
+
+			<label for="fileInput">
+				<img id="picture10" src="">
+				<h3>Choose your photo</h3>
+  			</label>
+		</div>
+-->
+    </section>
+    <div class="buttonDiv">
+        <button id="startButton"><h2>Press To Start</h2></button>
+    </div>
+    <div class="donate">
+		<a href="https://www.paypal.com/donate/?hosted_button_id=ZBL6JNPTM3DXY">
+			<button style="margin-top:3rem;">
+				<h2 style="color:slateblue;font-size:0.7rem;">
+					Click here to donate for this add free game
+				</h2>
+			</button>
+		</a>	
+    </div>
+</div>
+<div id="canvasPage" class="page" style="display:none;">
+	<div id="divCanvas" title="View Picture"> 
+		<img style='display:none' id="paper" src="images/paper1.png">
+		<canvas id="canvas" class="canvas" width="100%" height="100%" style="border:1px solid lightgrey;"></canvas>
+		<div id="congrat" class="start">
+			<div>Congratulations</div>
+			<div style="font-size: 24px;">
+				Tap to continue
+			</div>
+		</div>
+		<div class="charms" id="charms">
+			<svg version="1.1" id="eyeView" title="View Picture"  x="0px" y="0px" class="eyeView"
+				 width="512px" height="512px" viewBox="0 0 512 512"  xml:space="preserve">
+				<g>
+				   <path d="M256,96C144.341,96,47.559,161.021,0,256c47.559,94.979,144.341,160,256,160c111.656,0,208.439-65.021,256-160
+					C464.441,161.021,367.656,96,256,96z M382.225,180.852c30.082,19.187,55.572,44.887,74.719,75.148
+					c-19.146,30.261-44.639,55.961-74.719,75.148C344.428,355.257,300.779,368,256,368c-44.78,0-88.428-12.743-126.225-36.852
+					c-30.08-19.188-55.57-44.888-74.717-75.148c19.146-30.262,44.637-55.962,74.717-75.148c1.959-1.25,3.938-2.461,5.929-3.65
+					C130.725,190.866,128,205.613,128,221c0,70.691,57.308,128,128,128c70.691,0,128-57.309,128-128
+					c0-15.387-2.725-30.134-7.703-43.799C378.285,178.39,380.266,179.602,382.225,180.852z M256,205c0,26.51-21.49,48-48,48
+					s-48-21.49-48-48s21.49-48,48-48S256,178.49,256,205z"/>
+				</g>
+			</svg>
+		</div>
+		<div class="backButton" id="backButton">
+			<svg id="backSVG" fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+				 viewBox="0 0 219.151 219.151" xml:space="preserve">
+			<g>
+				<path d="M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575
+					C0.002,169.995,49.157,219.151,109.576,219.151z M109.576,15c52.148,0,94.573,42.426,94.574,94.575
+					c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z"/>
+				<path d="M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008
+					c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825
+					c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628
+					c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z"/>
+			</g>
+			</svg>
+		</div>
+		<img id="puzzle-image1" class="puzzle-image1" style="position:absolute;object-fit:cover;" src="" />
+	</div>
+</div>	
+</body>
+</html>
